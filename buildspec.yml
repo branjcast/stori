@@ -1,0 +1,33 @@
+---
+version: 0.2
+
+env:
+  variables:
+    SRC_DIR: /go/src/stori
+
+phases:
+  install:
+    commands:
+      # Debugging
+      - env | sort
+      # Work inside GOPATH
+      - ln -s ${CODEBUILD_SRC_DIR} ${SRC_DIR}
+      - cd ${SRC_DIR}
+      # Debugging
+      - pwd
+      - find .
+      - ls
+      - go mod init stori
+      - go mod tidy
+      # Install CI dependencies
+      - go mod download
+
+  build:
+    commands:
+      # Build the go application
+      - go build stori .
+
+artifacts:
+  files:
+    - main
+    - packaged.yaml
