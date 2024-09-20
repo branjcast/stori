@@ -62,7 +62,7 @@ Send id values for example:
 curl --location 'https://6uhsdbbg7d.execute-api.us-east-2.amazonaws.com/stori/api/user/summary' \
      --header 'Content-Type: application/json' \
      --data-raw '{
-          "email": "gfb-mpd@hotmail.com",
+          "email": "jcastillo.brandon@gmail.com",
           "name": "Brandon Jaime",
           "id": 12345
      }'
